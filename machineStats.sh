@@ -13,8 +13,6 @@ export PATH=/bin:/usr/bin:/sbin:/usr/sbin
 LOGDIR='/var/log/machineStats/'
 # Nome do arquivo de log
 LOG=$LOGDIR'machineStats.log'
-# Permissao para arquivo de log
-sudo chmod 777 $LOG
 
 # DECLARAR O INTERVALO EM QUE O SCRIPT IRA RODAR
 INTERVAL=2 ; export INTERVAL
@@ -23,6 +21,9 @@ INTERVAL=2 ; export INTERVAL
 if [ ! -d "$LOGDIR" ] ; then
 	sudo mkdir $LOGDIR ; touch $LOG 
 fi
+
+# Permissao para arquivo de log
+sudo chmod 777 -R $LOG
 
 #
 # - Definindo funcoes para cada cor que sera usada (cores com negrito)
